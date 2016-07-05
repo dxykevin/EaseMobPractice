@@ -41,6 +41,9 @@
 /** 登录 */
 - (IBAction)login:(id)sender {
     
+    /** 让环信SDK在登录完成之后 自动从服务器获取好友列表 添加到本地数据库 */
+    [[EaseMob sharedInstance].chatManager setIsAutoFetchBuddyList:YES];
+    
     NSString *message = @"";
     
     if (self.pwdTF.text.length == 0 && self.userNameTF.text.length == 0) {

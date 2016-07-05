@@ -8,7 +8,7 @@
 
 #import "XYConversationViewController.h"
 #import "EaseMob.h"
-@interface XYConversationViewController () <EMChatManagerDelegate>
+@interface XYConversationViewController () <EMChatManagerDelegate,EMChatManagerBuddyDelegate>
 
 @end
 

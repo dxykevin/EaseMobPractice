@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92BB4041D2BF092008200E7 /* XYAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BB4031D2BF092008200E7 /* XYAddressBookViewController.m */; };
 		C995B8DA1D2B997A00AF39CA /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C995B8D71D2B997A00AF39CA /* libEaseMobClientSDK.a */; };
 		C995B8DB1D2B997A00AF39CA /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C995B8D91D2B997A00AF39CA /* EaseMob.bundle */; };
 		C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C92BB4021D2BF092008200E7 /* XYAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddressBookViewController.h; sourceTree = "<group>"; };
+		C92BB4031D2BF092008200E7 /* XYAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddressBookViewController.m; sourceTree = "<group>"; };
 		C995B8731D2B997A00AF39CA /* EMCallManagerCallDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerCallDelegate.h; sourceTree = "<group>"; };
 		C995B8741D2B997A00AF39CA /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
 		C995B8751D2B997A00AF39CA /* EaseMob+CallService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EaseMob+CallService.h"; sourceTree = "<group>"; };
@@ -487,6 +490,8 @@
 			children = (
 				C995B8E71D2BA72000AF39CA /* XYAddFriendViewController.h */,
 				C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */,
+				C92BB4021D2BF092008200E7 /* XYAddressBookViewController.h */,
+				C92BB4031D2BF092008200E7 /* XYAddressBookViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -767,6 +772,7 @@
 				C995B8ED1D2BB47C00AF39CA /* XYConversationViewController.m in Sources */,
 				C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */,
 				C9C636341D2A8C4A00BCAC7A /* AppDelegate.m in Sources */,
+				C92BB4041D2BF092008200E7 /* XYAddressBookViewController.m in Sources */,
 				C9C636311D2A8C4A00BCAC7A /* main.m in Sources */,
 				C9C636ED1D2B7AB200BCAC7A /* XYLoginViewController.m in Sources */,
 			);

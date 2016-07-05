@@ -122,7 +122,7 @@
         <!--通讯录-->
         <scene sceneID="MbW-hX-q3R">
             <objects>
-                <tableViewController id="pFp-gZ-fNJ" sceneMemberID="viewController">
+                <tableViewController id="pFp-gZ-fNJ" customClass="XYAddressBookViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tvY-zH-baT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -19,6 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    NSLog(@"%@",NSHomeDirectory());
+    
     [[EaseMob sharedInstance] registerSDKWithAppKey:kAppKey apnsCertName:nil otherConfig:@{kSDKConfigEnableConsoleLogger:@NO}];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
@@ -61,5 +63,33 @@
 - (void)dealloc {
     
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
+}
+
+/*!
+ @method
+ @brief 好友请求被接受时的回调
+ @discussion
+ @param username 之前发出的好友请求被用户username接受了
+ */
+- (void)didAcceptedByBuddy:(NSString *)username {
+    
+    NSString *message = [NSString stringWithFormat:@"%@同意了你的好友请求",username];
+    NSLog(@"%@",message);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友添加消息" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+/*!
+ @method
+ @brief 好友请求被拒绝时的回调
+ @discussion
+ @param username 之前发出的好友请求被用户username拒绝了
+ */
+- (void)didRejectedByBuddy:(NSString *)username {
+    
+    NSString *message = [NSString stringWithFormat:@"%@拒绝了你的好友请求",username];
+    NSLog(@"%@",message);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友添加消息" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    [alert show];
 }
 @end
