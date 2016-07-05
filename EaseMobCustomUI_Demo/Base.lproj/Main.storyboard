@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-268" y="-54"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Conversation View Controller-->
         <scene sceneID="ezj-aQ-efK">
             <objects>
-                <tableViewController id="484-es-h4B" sceneMemberID="viewController">
+                <tableViewController id="484-es-h4B" customClass="XYConversationViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VAr-pd-f6f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
