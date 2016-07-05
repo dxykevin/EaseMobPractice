@@ -36,15 +36,15 @@
     NSLog(@"self.buddylist == %@",self.buddylist);
  
 #warning 强调buddylist没有值的情况 1.第一次登录 2.自动登录还没有完成
-    if (self.buddylist.count == 0) {
-        /** 数据库没有好友记录 */
-        [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
-            NSLog(@"buddyListbuddyList == %@",buddyList);
-            for (EMBuddy *buddy in buddyList) {
-                NSLog(@"%@",buddy.username);
-            }
-        } onQueue:nil];
-    }
+//    if (self.buddylist.count == 0) {
+//        /** 数据库没有好友记录 */
+//        [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
+//            NSLog(@"buddyListbuddyList == %@",buddyList);
+//            for (EMBuddy *buddy in buddyList) {
+//                NSLog(@"%@",buddy.username);
+//            }
+//        } onQueue:nil];
+//    }
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"addressCell"];
 }
@@ -89,6 +89,33 @@
         /** 刷新表格 */
         [self.tableView reloadData];
     }
+}
+
+- (void)didAcceptedByBuddy:(NSString *)username {
+    
+    /** 把新的好友显示在列表中 */
+    NSArray *buddyList = [[EaseMob sharedInstance].chatManager buddyList];
+    NSLog(@"好友添加请求同意 %@",buddyList);
+#warning buddyList的个数 仍然是没有添加好友之前的个数 从新服务器获取
+    [self loadBuddyListFromServer];
+}
+
+- (void)loadBuddyListFromServer {
+    
+    [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
+        NSLog(@"从服务器获取的好友列表 %@",buddyList);
+        
+        /** 赋值数据源 */
+        self.buddylist = buddyList;
+        /** 刷新 */
+        [self.tableView reloadData];
+    } onQueue:nil];
+}
+
+/** 好友列表数据被更新 */
+- (void)didUpdateBuddyList:(NSArray *)buddyList changedBuddies:(NSArray *)changedBuddies isAdd:(BOOL)isAdd {
+    
+    
 }
 
 - (NSArray *)buddylist {
