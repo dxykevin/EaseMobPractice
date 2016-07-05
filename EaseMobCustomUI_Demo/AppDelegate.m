@@ -58,4 +58,8 @@
     [[EaseMob sharedInstance] applicationWillTerminate:application];
 }
 
+- (void)dealloc {
+    
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+}
 @end

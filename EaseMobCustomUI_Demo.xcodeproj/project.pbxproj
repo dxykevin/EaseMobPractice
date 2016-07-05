@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C995B8DA1D2B997A00AF39CA /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C995B8D71D2B997A00AF39CA /* libEaseMobClientSDK.a */; };
 		C995B8DB1D2B997A00AF39CA /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C995B8D91D2B997A00AF39CA /* EaseMob.bundle */; };
+		C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */; };
+		C995B8ED1D2BB47C00AF39CA /* XYConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8EC1D2BB47C00AF39CA /* XYConversationViewController.m */; };
 		C9C636311D2A8C4A00BCAC7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C636301D2A8C4A00BCAC7A /* main.m */; };
 		C9C636341D2A8C4A00BCAC7A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C636331D2A8C4A00BCAC7A /* AppDelegate.m */; };
 		C9C6363A1D2A8C4A00BCAC7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9C636381D2A8C4A00BCAC7A /* Main.storyboard */; };
@@ -131,6 +133,10 @@
 		C995B8D51D2B997A00AF39CA /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
 		C995B8D71D2B997A00AF39CA /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
 		C995B8D91D2B997A00AF39CA /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
+		C995B8E71D2BA72000AF39CA /* XYAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddFriendViewController.h; sourceTree = "<group>"; };
+		C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddFriendViewController.m; sourceTree = "<group>"; };
+		C995B8EB1D2BB47C00AF39CA /* XYConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYConversationViewController.h; sourceTree = "<group>"; };
+		C995B8EC1D2BB47C00AF39CA /* XYConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYConversationViewController.m; sourceTree = "<group>"; };
 		C9C6362C1D2A8C4A00BCAC7A /* EaseMobCustomUI_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EaseMobCustomUI_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9C636301D2A8C4A00BCAC7A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9C636321D2A8C4A00BCAC7A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
@@ -460,6 +466,40 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		C995B8DC1D2B9F4100AF39CA /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				C995B8EA1D2BB47C00AF39CA /* Controller */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		C995B8E51D2BA70800AF39CA /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				C995B8E61D2BA71600AF39CA /* Controller */,
+			);
+			path = AddressBook;
+			sourceTree = "<group>";
+		};
+		C995B8E61D2BA71600AF39CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C995B8E71D2BA72000AF39CA /* XYAddFriendViewController.h */,
+				C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C995B8EA1D2BB47C00AF39CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C995B8EB1D2BB47C00AF39CA /* XYConversationViewController.h */,
+				C995B8EC1D2BB47C00AF39CA /* XYConversationViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C9C636231D2A8C4A00BCAC7A = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +561,8 @@
 		C9C636E21D2B667400BCAC7A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C995B8E51D2BA70800AF39CA /* AddressBook */,
+				C995B8DC1D2B9F4100AF39CA /* Conversation */,
 				C9C636E91D2B7A8400BCAC7A /* Login */,
 				C9C636E51D2B66F700BCAC7A /* Lib */,
 				C9C636E41D2B66D000BCAC7A /* Xib */,
@@ -656,6 +698,7 @@
 				TargetAttributes = {
 					C9C6362B1D2A8C4A00BCAC7A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 57J8MMD8UM;
 					};
 					C9C636441D2A8C4B00BCAC7A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -721,6 +764,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C995B8ED1D2BB47C00AF39CA /* XYConversationViewController.m in Sources */,
+				C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */,
 				C9C636341D2A8C4A00BCAC7A /* AppDelegate.m in Sources */,
 				C9C636311D2A8C4A00BCAC7A /* main.m in Sources */,
 				C9C636ED1D2B7AB200BCAC7A /* XYLoginViewController.m in Sources */,
@@ -866,6 +911,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EaseMobCustomUI_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -876,6 +923,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "HoldCourt.EaseMobCustomUI-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -883,6 +931,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EaseMobCustomUI_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -893,6 +943,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "HoldCourt.EaseMobCustomUI-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

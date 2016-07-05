@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-268" y="-54"/>
         </scene>
-        <!--Conversation View Controller-->
+        <!--会话-->
         <scene sceneID="ezj-aQ-efK">
             <objects>
                 <tableViewController id="484-es-h4B" customClass="XYConversationViewController" sceneMemberID="viewController">
@@ -48,12 +48,56 @@
                             <outlet property="delegate" destination="484-es-h4B" id="mc2-go-kC5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="VDI-x6-6od"/>
+                    <navigationItem key="navigationItem" title="会话" id="VDI-x6-6od"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vhj-JU-6gk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="689" y="-802"/>
+        </scene>
+        <!--添加好友-->
+        <scene sceneID="24j-rd-CTB">
+            <objects>
+                <viewController id="sax-ky-9XS" customClass="XYAddFriendViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7ie-DE-tw0"/>
+                        <viewControllerLayoutGuide type="bottom" id="PHo-eV-zqY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q9i-Fn-Upy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入好友名字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M9w-bX-hb6">
+                                <rect key="frame" x="30" y="144" width="260" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sc4-fx-FAe">
+                                <rect key="frame" x="145" y="204" width="30" height="30"/>
+                                <state key="normal" title="添加"/>
+                                <connections>
+                                    <action selector="addFriend:" destination="sax-ky-9XS" eventType="touchUpInside" id="ho0-en-VVV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M9w-bX-hb6" firstAttribute="leading" secondItem="Q9i-Fn-Upy" secondAttribute="leading" constant="30" id="52f-ya-HXt"/>
+                            <constraint firstItem="Sc4-fx-FAe" firstAttribute="centerX" secondItem="Q9i-Fn-Upy" secondAttribute="centerX" id="AgN-gb-C11"/>
+                            <constraint firstItem="Sc4-fx-FAe" firstAttribute="top" secondItem="M9w-bX-hb6" secondAttribute="bottom" constant="30" id="FFD-CL-X3y"/>
+                            <constraint firstAttribute="trailing" secondItem="M9w-bX-hb6" secondAttribute="trailing" constant="30" id="Z5D-Wk-yEx"/>
+                            <constraint firstItem="M9w-bX-hb6" firstAttribute="top" secondItem="7ie-DE-tw0" secondAttribute="bottom" constant="80" id="sBV-ag-6Jo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="添加好友" id="lLf-fc-cKn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="addFriendTF" destination="M9w-bX-hb6" id="83I-fP-47N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2o7-hN-wcb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1087" y="-54"/>
         </scene>
         <!--会话-->
         <scene sceneID="E5d-Vw-GTY">
@@ -75,7 +119,7 @@
             </objects>
             <point key="canvasLocation" x="297" y="-802"/>
         </scene>
-        <!--Table View Controller-->
+        <!--通讯录-->
         <scene sceneID="MbW-hX-q3R">
             <objects>
                 <tableViewController id="pFp-gZ-fNJ" sceneMemberID="viewController">
@@ -98,7 +142,13 @@
                             <outlet property="delegate" destination="pFp-gZ-fNJ" id="dZk-sa-rN9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gMY-Ln-BA4"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="gMY-Ln-BA4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nUA-fW-MCe">
+                            <connections>
+                                <segue destination="sax-ky-9XS" kind="show" id="3l3-dH-lZo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIN-JS-3Br" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -125,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="277" y="-54"/>
         </scene>
-        <!--Table View Controller-->
+        <!--设置-->
         <scene sceneID="hm5-nD-O58">
             <objects>
                 <tableViewController id="BNh-UA-UyP" sceneMemberID="viewController">
@@ -148,7 +198,7 @@
                             <outlet property="delegate" destination="BNh-UA-UyP" id="PkZ-qs-kdU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4aa-Cd-dFI"/>
+                    <navigationItem key="navigationItem" title="设置" id="4aa-Cd-dFI"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5d4-Dk-b2K" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -49,9 +49,72 @@
         NSLog(@"自动连接失败---%@",error);
     }
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)dealloc {
+    
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+}
+
+/*!
+ @method
+ @brief 接收到好友请求时的通知
+ @discussion
+ @param username 发起好友请求的用户username
+ @param message  收到好友请求时的say hello消息
+ */
+- (void)didReceiveBuddyRequest:(NSString *)username
+                       message:(NSString *)message {
+    
+    NSLog(@"接收到好友请求时的通知---%@ message == %@",username,message);
+}
+
+/*!
+ @method
+ @brief 好友请求被接受时的回调
+ @discussion
+ @param username 之前发出的好友请求被用户username接受了
+ */
+- (void)didAcceptedByBuddy:(NSString *)username {
+    
+    NSString *message = [NSString stringWithFormat:@"%@同意了你的好友请求",username];
+    NSLog(@"%@",message);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友添加消息" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+/*!
+ @method
+ @brief 好友请求被拒绝时的回调
+ @discussion
+ @param username 之前发出的好友请求被用户username拒绝了
+ */
+- (void)didRejectedByBuddy:(NSString *)username {
+    
+    NSString *message = [NSString stringWithFormat:@"%@拒绝了你的好友请求",username];
+    NSLog(@"%@",message);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友添加消息" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+/*!
+ @method
+ @brief 接受好友请求成功的回调
+ @discussion
+ @param username 登录用户接受了"username发过来的好友请求"成功的回调
+ */
+- (void)didAcceptBuddySucceed:(NSString *)username {
+    
+}
+
+/*!
+ @method
+ @brief 登录的用户被好友从列表中删除了
+ @discussion
+ @param username 删除的好友username
+ */
+- (void)didRemovedByBuddy:(NSString *)username {
+    
+    
 }
 
 #pragma mark - Table view data source
