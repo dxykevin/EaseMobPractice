@@ -63,15 +63,15 @@
     [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:self.userNameTF.text password:self.pwdTF.text completion:^(NSDictionary *loginInfo, EMError *error) {
         if (!error) {
             NSLog(@"登录成功---%@",loginInfo);
+            /** 设置自动登录 */
+            [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+            
+            /** 来到主界面 */
+            self.view.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
         } else {
             NSLog(@"登录失败---%@",error);
         }
     } onQueue:dispatch_get_main_queue()];
-    
-    /** 设置自动登录 */
-    
-    /** 来到主界面 */
-    self.view.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
 }
 
 /*

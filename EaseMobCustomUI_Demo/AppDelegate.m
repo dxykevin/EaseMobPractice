@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "EaseMob.h"
 #define kAppKey @"dxykevin#hcdemo"
-@interface AppDelegate ()
+@interface AppDelegate () <EMChatManagerDelegate>
 
 @end
 
@@ -21,9 +21,25 @@
     
     [[EaseMob sharedInstance] registerSDKWithAppKey:kAppKey apnsCertName:nil otherConfig:@{kSDKConfigEnableConsoleLogger:@NO}];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+    
+    if ([[EaseMob sharedInstance].chatManager isAutoLoginEnabled]) {
+        self.window.rootViewController = [UIStoryboard storyboardWithName:@"Main" bundle:nil].instantiateInitialViewController;
+    }
     return YES;
 }
 
+#pragma mark - EMChatManagerDelegate
+/** 自动登录的回调 */
+- (void)didAutoLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error {
+    
+    if (!error) {
+        NSLog(@"自动登录成功---%@",loginInfo);
+    } else {
+        NSLog(@"自动登录失败---%@",error);
+    }
+}
 // APP进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
