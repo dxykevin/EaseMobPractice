@@ -7,7 +7,7 @@
 //
 
 #import "XYLoginViewController.h"
-#import "EaseMob.h"
+#import "EMSDK.h"
 @interface XYLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTF;
@@ -29,21 +29,20 @@
 /** 注册 */
 - (IBAction)register:(id)sender {
     
-    [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:self.userNameTF.text password:self.pwdTF.text withCompletion:^(NSString *username, NSString *password, EMError *error) {
-        if (!error) {
-            NSLog(@"注册成功---%@",username);
-        } else {
-            NSLog(@"注册失败---%@",error);
-        }
-    } onQueue:dispatch_get_main_queue()];
+    EMError *error = [[EMClient sharedClient] registerWithUsername:self.userNameTF.text password:self.pwdTF.text];
+    if (!error) {
+        NSLog(@"注册成功");
+    } else {
+        NSLog(@"注册失败---%@",error);
+    }
 }
 
 /** 登录 */
 - (IBAction)login:(id)sender {
     
     /** 让环信SDK在登录完成之后 自动从服务器获取好友列表 添加到本地数据库 */
-    [[EaseMob sharedInstance].chatManager setIsAutoFetchBuddyList:YES];
-    
+//    [[EMClient sharedClient].chatManager setIsAutoFetchBuddyList:YES];
+   
     NSString *message = @"";
     
     if (self.pwdTF.text.length == 0 && self.userNameTF.text.length == 0) {
@@ -63,18 +62,16 @@
         return;
     }
     
-    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:self.userNameTF.text password:self.pwdTF.text completion:^(NSDictionary *loginInfo, EMError *error) {
-        if (!error) {
-            NSLog(@"登录成功---%@",loginInfo);
-            /** 设置自动登录 */
-            [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
-            
-            /** 来到主界面 */
-            self.view.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
-        } else {
-            NSLog(@"登录失败---%@",error);
-        }
-    } onQueue:dispatch_get_main_queue()];
+    EMError *error = [[EMClient sharedClient] loginWithUsername:self.userNameTF.text password:self.pwdTF.text];
+    if (!error) {
+        NSLog(@"登录成功");
+        /** 设置自动登录 */
+        [[EMClient sharedClient].options setIsAutoLogin:YES];
+        /** 来到主界面 */
+        self.view.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+    } else {
+        NSLog(@"登录失败---%@",error);
+    }
 }
 
 /*

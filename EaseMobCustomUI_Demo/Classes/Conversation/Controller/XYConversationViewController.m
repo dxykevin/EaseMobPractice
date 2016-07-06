@@ -7,9 +7,10 @@
 //
 
 #import "XYConversationViewController.h"
-#import "EaseMob.h"
-@interface XYConversationViewController () <EMChatManagerDelegate,EMChatManagerBuddyDelegate>
-
+#import "EMSDK.h"
+@interface XYConversationViewController () <EMClientDelegate,EMContactManagerDelegate,UIAlertViewDelegate>
+/** 好友名字 */
+@property (nonatomic,copy) NSString *buddyName;
 @end
 
 @implementation XYConversationViewController
@@ -17,104 +18,83 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /** 监听网络状态 */
-    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+    /** 监听网络状态的代理 */
+    [[EMClient sharedClient] addDelegate:self delegateQueue:nil];
+    /** 好友添加 删除等代理 */
+    [[EMClient sharedClient].contactManager addDelegate:self delegateQueue:nil];
 }
 
-#pragma mark - EMChatManagerDelegate
+#pragma mark - EMClientDelegate
 /** 网络连接状态变化发生的回调 */
-- (void)didConnectionStateChanged:(EMConnectionState)connectionState {
+- (void)didConnectionStateChanged:(EMConnectionState)aConnectionState {
     
-    if (connectionState == eEMConnectionDisconnected) {
+    if (aConnectionState == EMConnectionDisconnected) {
         NSLog(@"网络未连接");
-        self.title = @"网络未连接";
+        self.navigationItem.title = @"网络未连接";
     } else {
         NSLog(@"网络连接成功");
-        self.title = @"网络连接成功";
+        self.navigationItem.title = @"网络连接成功";
     }
 }
 
-- (void)willAutoReconnect {
+#pragma mark - EMContactManagerDelegate
+/**
+ *  用户B同意用户A的加好友请求后，用户A会收到这个回调
+ *
+ *  @param aUsername 用户B
+ */
+- (void)didReceiveAgreedFromUsername:(NSString *)aUsername {
     
-    NSLog(@"将自动重新连接");
-    self.title = @"连接中...";
+    NSString *message = [NSString stringWithFormat:@"用户%@同意了您的好友请求",aUsername];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"添加好友" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 
-- (void)didAutoReconnectFinishedWithError:(NSError *)error {
+/**
+ *  用户B拒绝用户A的加好友请求后，用户A会收到这个回调
+ *
+ *  @param aUsername 用户B
+ */
+- (void)didReceiveDeclinedFromUsername:(NSString *)aUsername {
     
-    if (!error) {
-        NSLog(@"自动重新连接成功");
-        self.title = @"会话";
-    } else {
-        NSLog(@"自动连接失败---%@",error);
-    }
+    NSString *message = [NSString stringWithFormat:@"用户%@拒绝了您的好友请求",aUsername];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"添加好友" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [alert show];
+}
+
+/**
+ *  用户B删除与用户A的好友关系后，用户A会收到这个回调
+ *
+ *  @param aUsername 用户B
+ */
+- (void)didReceiveDeletedFromUsername:(NSString *)aUsername {
+    
+}
+
+/**
+ *   用户B同意用户A的好友申请后，用户A和用户B都会收到这个回调
+ *
+ *  @param aUsername 用户好友关系的另一方
+ */
+- (void)didReceiveAddedFromUsername:(NSString *)aUsername {
+    
+}
+
+/**
+ *  用户B申请加A为好友后，用户A会收到这个回调
+ *
+ *  @param aUsername 用户B
+ *  @param aMessage  好友邀请信息
+ */
+- (void)didReceiveFriendInvitationFromUsername:(NSString *)aUsername
+                                       message:(NSString *)aMessage {
+    
+    
 }
 
 - (void)dealloc {
     
-    [[EaseMob sharedInstance].chatManager removeDelegate:self];
-}
-
-/*!
- @method
- @brief 接收到好友请求时的通知
- @discussion
- @param username 发起好友请求的用户username
- @param message  收到好友请求时的say hello消息
- */
-- (void)didReceiveBuddyRequest:(NSString *)username
-                       message:(NSString *)message {
-    
-    NSLog(@"接收到好友请求时的通知---%@ message == %@",username,message);
-}
-
-/*!
- @method
- @brief 好友请求被接受时的回调
- @discussion
- @param username 之前发出的好友请求被用户username接受了
- */
-- (void)didAcceptedByBuddy:(NSString *)username {
-    
-    NSString *message = [NSString stringWithFormat:@"%@同意了你的好友请求",username];
-    NSLog(@"%@",message);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友添加消息" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-    [alert show];
-}
-
-/*!
- @method
- @brief 好友请求被拒绝时的回调
- @discussion
- @param username 之前发出的好友请求被用户username拒绝了
- */
-- (void)didRejectedByBuddy:(NSString *)username {
-    
-    NSString *message = [NSString stringWithFormat:@"%@拒绝了你的好友请求",username];
-    NSLog(@"%@",message);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友添加消息" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-    [alert show];
-}
-
-/*!
- @method
- @brief 接受好友请求成功的回调
- @discussion
- @param username 登录用户接受了"username发过来的好友请求"成功的回调
- */
-- (void)didAcceptBuddySucceed:(NSString *)username {
-    
-}
-
-/*!
- @method
- @brief 登录的用户被好友从列表中删除了
- @discussion
- @param username 删除的好友username
- */
-- (void)didRemovedByBuddy:(NSString *)username {
-    
-    
+    [[EMClient sharedClient] removeDelegate:self];
 }
 
 #pragma mark - Table view data source
@@ -128,59 +108,5 @@
 #warning Incomplete implementation, return the number of rows
     return 0;
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

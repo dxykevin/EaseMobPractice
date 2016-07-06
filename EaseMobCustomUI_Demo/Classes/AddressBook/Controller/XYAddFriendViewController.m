@@ -7,8 +7,8 @@
 //
 
 #import "XYAddFriendViewController.h"
-#import "EaseMob.h"
-@interface XYAddFriendViewController () <EMChatManagerDelegate>
+#import "EMSDK.h"
+@interface XYAddFriendViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *addFriendTF;
 
 @end
@@ -19,19 +19,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
 }
 
 /** 添加好友 */
 - (IBAction)addFriend:(id)sender {
+   
+    EMError *error = [[EMClient sharedClient].contactManager addContact:self.addFriendTF.text message:[NSString stringWithFormat:@"我是%@\n我想加你为好友",[[EMClient sharedClient] currentUsername]]];
     
-    /** 1.获取要添加好友的名字 */
-    NSString *userName = self.addFriendTF.text;
-    /** 2.向服务器发送添加好友的请求 */
-    NSString *message = [NSString stringWithFormat:@"我是%@\n我想加你为好友",[[EaseMob sharedInstance].chatManager loginInfo][@"username"]];
-    NSLog(@"添加好友-%@",message);
-    EMError *error;
-    [[EaseMob sharedInstance].chatManager addBuddy:userName message:message error:&error];
     if (error) {
         NSLog(@"添加好友有问题--%@",error);
     } else {
@@ -47,10 +41,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    
-    [[EaseMob sharedInstance].chatManager removeDelegate:self];
-}
 /*
 #pragma mark - Navigation
 

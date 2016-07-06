@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "EaseMob.h"
+#import "EMSDK.h"
 #define kAppKey @"dxykevin#hcdemo"
-@interface AppDelegate () <EMChatManagerDelegate>
+@interface AppDelegate () <EMClientDelegate,EMChatManagerDelegate>
 
 @end
 
@@ -21,75 +21,46 @@
     
     NSLog(@"%@",NSHomeDirectory());
     
-    [[EaseMob sharedInstance] registerSDKWithAppKey:kAppKey apnsCertName:nil otherConfig:@{kSDKConfigEnableConsoleLogger:@NO}];
-    [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    /** 初始化 */
+    EMOptions *options = [EMOptions  optionsWithAppkey:kAppKey];
+    options.apnsCertName = nil;
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
     
-    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+    [[EMClient sharedClient] addDelegate:self delegateQueue:nil];
+    [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
     
-    if ([[EaseMob sharedInstance].chatManager isAutoLoginEnabled]) {
+    /** 判断是否自动登录 */
+    if ([[EMClient sharedClient].options isAutoLogin]) {
         self.window.rootViewController = [UIStoryboard storyboardWithName:@"Main" bundle:nil].instantiateInitialViewController;
     }
     return YES;
 }
 
-#pragma mark - EMChatManagerDelegate
-/** 自动登录的回调 */
-- (void)didAutoLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error {
-    
-    if (!error) {
-        NSLog(@"自动登录成功---%@",loginInfo);
-    } else {
-        NSLog(@"自动登录失败---%@",error);
-    }
-}
 // APP进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [[EaseMob sharedInstance] applicationDidEnterBackground:application];
+    [[EMClient sharedClient] applicationDidEnterBackground:application];
 }
 
 // APP将要从后台返回
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
+    [[EMClient sharedClient] applicationWillEnterForeground:application];
 }
 
-// 申请处理时间
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [[EaseMob sharedInstance] applicationWillTerminate:application];
+/** 自动登录返回的回调 */
+- (void)didAutoLoginWithError:(EMError *)aError {
+    
+    if (!aError) {
+        NSLog(@"自动登录成功");
+    } else {
+        NSLog(@"自动登录失败 === %@",aError);
+    }
 }
 
 - (void)dealloc {
     
-    [[EaseMob sharedInstance].chatManager removeDelegate:self];
-}
-
-/*!
- @method
- @brief 好友请求被接受时的回调
- @discussion
- @param username 之前发出的好友请求被用户username接受了
- */
-- (void)didAcceptedByBuddy:(NSString *)username {
-    
-    NSString *message = [NSString stringWithFormat:@"%@同意了你的好友请求",username];
-    NSLog(@"%@",message);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友添加消息" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-    [alert show];
-}
-
-/*!
- @method
- @brief 好友请求被拒绝时的回调
- @discussion
- @param username 之前发出的好友请求被用户username拒绝了
- */
-- (void)didRejectedByBuddy:(NSString *)username {
-    
-    NSString *message = [NSString stringWithFormat:@"%@拒绝了你的好友请求",username];
-    NSLog(@"%@",message);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友添加消息" message:message delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
-    [alert show];
+    [[EMClient sharedClient] removeDelegate:self];
+    [[EMClient sharedClient].chatManager removeDelegate:self];
 }
 @end

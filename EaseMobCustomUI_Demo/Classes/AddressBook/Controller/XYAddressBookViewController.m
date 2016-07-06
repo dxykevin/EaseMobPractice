@@ -7,9 +7,11 @@
 //
 
 #import "XYAddressBookViewController.h"
-#import "EaseMob.h"
-@interface XYAddressBookViewController () <EMChatManagerDelegate>
+#import "EMSDK.h"
+@interface XYAddressBookViewController () <EMContactManagerDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong) NSArray *buddylist;
+/** 好友名字 */
+@property (nonatomic,copy) NSString *buddyName;
 @end
 
 @implementation XYAddressBookViewController
@@ -17,34 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+    [[EMClient sharedClient].contactManager addDelegate:self delegateQueue:nil];
     
-#warning 好友列表buddylist需要在自动登录成功后才有值
-    /** 获取好友列表数据
-     1.好友列表buddylist需要在自动登录成功后才有值
-     2.buddylist的数据是从本地数据库获取
-     3.如果从服务器获取好友列表,调用[[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error)
-     4.如果当前有添加好友请求 环信SDK内部会往数据库的buddy表添加好友记录
-     5.如果程序删除或者用户第一次登录 buddyList表是没有记录的
-        解决方案:
-        1.要从服务器获取好友列表记录
-        2.用户第一次登录后,自动从服务器获取好友列表
-     */
-
-    
-    self.buddylist = [[EaseMob sharedInstance].chatManager buddyList];
+    self.buddylist = [[EMClient sharedClient].contactManager getContactsFromDB];
     NSLog(@"self.buddylist == %@",self.buddylist);
  
-#warning 强调buddylist没有值的情况 1.第一次登录 2.自动登录还没有完成
-//    if (self.buddylist.count == 0) {
-//        /** 数据库没有好友记录 */
-//        [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
-//            NSLog(@"buddyListbuddyList == %@",buddyList);
-//            for (EMBuddy *buddy in buddyList) {
-//                NSLog(@"%@",buddy.username);
-//            }
-//        } onQueue:nil];
-//    }
+    if (self.buddylist.count == 0) {
+        /** 数据库没有好友记录 从服务器获取 */
+        EMError *error = nil;
+        self.buddylist = [[EMClient sharedClient].contactManager getContactsFromServerWithError:&error];
+        NSLog(@"数据库没有好友记录 从服务器获取 --- %@",self.buddylist);
+    }
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"addressCell"];
 }
@@ -69,9 +54,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addressCell"];
-    EMBuddy *buddy = self.buddylist[indexPath.row];
+    
     cell.imageView.image = [UIImage imageNamed:@"chatListCellHead"];
-    cell.textLabel.text = buddy.username;
+    
+    cell.textLabel.text = self.buddylist[indexPath.row];
+    
     return cell;
 }
 
@@ -80,42 +67,62 @@
     return 60;
 }
 
-#pragma mark - EMChatManagerDelegate
-- (void)didAutoLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error {
+#pragma mark - EMContactManagerDelegate
+
+/**
+ *  用户B同意用户A的加好友请求后，用户A会收到这个回调
+ *
+ *  @param aUsername 用户B
+ */
+- (void)didReceiveAgreedFromUsername:(NSString *)aUsername {
     
-    if (!error) {
-        /** 自动登录成功后 此时buddylist才有值 */
-        self.buddylist = [[EaseMob sharedInstance].chatManager buddyList];
-        /** 刷新表格 */
-        [self.tableView reloadData];
+    /** 把新的好友显示在列表上 */
+    NSArray *buddyList = [[EMClient sharedClient].contactManager getContactsFromDB];
+    NSLog(@"好友添加请求同意 %@",buddyList);
+    self.buddylist = buddyList;
+    [self.tableView reloadData];
+}
+
+/**
+ *  用户B申请加A为好友后，用户A会收到这个回调
+ *
+ *  @param aUsername 用户B
+ *  @param aMessage  好友邀请信息
+ */
+- (void)didReceiveFriendInvitationFromUsername:(NSString *)aUsername
+                                       message:(NSString *)aMessage {
+    
+    NSLog(@"收到好友申请");
+    self.buddyName = aUsername;
+    NSString *message = [NSString stringWithFormat:@"%@想加您为好友",aUsername];
+    NSLog(@"message == %@",message);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好友申请" message:message delegate:self cancelButtonTitle:@"拒绝" otherButtonTitles:@"接受", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        /** 拒绝 */
+        EMError *error = [[EMClient sharedClient].contactManager declineInvitationForUsername:self.buddyName];
+        if (!error) {
+            NSLog(@"拒绝已发送");
+        }
+    } else {
+        /** 接受 */
+        EMError *error = [[EMClient sharedClient].contactManager acceptInvitationForUsername:self.buddyName];
+        if (!error) {
+            NSLog(@"发送同意成功");
+            /** 从服务器获取新的好友列表 */
+            self.buddylist = [[EMClient sharedClient].contactManager getContactsFromServerWithError:nil];
+            [self.tableView reloadData];
+        }
     }
 }
 
-- (void)didAcceptedByBuddy:(NSString *)username {
+- (void)dealloc {
     
-    /** 把新的好友显示在列表中 */
-    NSArray *buddyList = [[EaseMob sharedInstance].chatManager buddyList];
-    NSLog(@"好友添加请求同意 %@",buddyList);
-#warning buddyList的个数 仍然是没有添加好友之前的个数 从新服务器获取
-    [self loadBuddyListFromServer];
-}
-
-- (void)loadBuddyListFromServer {
-    
-    [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
-        NSLog(@"从服务器获取的好友列表 %@",buddyList);
-        
-        /** 赋值数据源 */
-        self.buddylist = buddyList;
-        /** 刷新 */
-        [self.tableView reloadData];
-    } onQueue:nil];
-}
-
-/** 好友列表数据被更新 */
-- (void)didUpdateBuddyList:(NSArray *)buddyList changedBuddies:(NSArray *)changedBuddies isAdd:(BOOL)isAdd {
-    
-    
+    [[EMClient sharedClient].contactManager removeDelegate:self];
 }
 
 - (NSArray *)buddylist {
