@@ -22,6 +22,7 @@
 		C92BB47A1D2C0C1F008200E7 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C92BB4761D2C0C1F008200E7 /* libcurl.a */; };
 		C92BB47B1D2C0C1F008200E7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C92BB4771D2C0C1F008200E7 /* libssl.a */; };
 		C92BB47C1D2C0C1F008200E7 /* libHyphenateFullSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C92BB4781D2C0C1F008200E7 /* libHyphenateFullSDK.a */; };
+		C93D8D091D2CA0AC001305B9 /* XYSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D081D2CA0AC001305B9 /* XYSettingsViewController.m */; };
 		C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */; };
 		C995B8ED1D2BB47C00AF39CA /* XYConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8EC1D2BB47C00AF39CA /* XYConversationViewController.m */; };
 		C9C636311D2A8C4A00BCAC7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C636301D2A8C4A00BCAC7A /* main.m */; };
@@ -102,6 +103,8 @@
 		C92BB4761D2C0C1F008200E7 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
 		C92BB4771D2C0C1F008200E7 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		C92BB4781D2C0C1F008200E7 /* libHyphenateFullSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libHyphenateFullSDK.a; sourceTree = "<group>"; };
+		C93D8D071D2CA0AC001305B9 /* XYSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingsViewController.h; sourceTree = "<group>"; };
+		C93D8D081D2CA0AC001305B9 /* XYSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingsViewController.m; sourceTree = "<group>"; };
 		C995B8E71D2BA72000AF39CA /* XYAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddFriendViewController.h; sourceTree = "<group>"; };
 		C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddFriendViewController.m; sourceTree = "<group>"; };
 		C995B8EB1D2BB47C00AF39CA /* XYConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYConversationViewController.h; sourceTree = "<group>"; };
@@ -245,6 +248,23 @@
 			path = 3rdparty;
 			sourceTree = "<group>";
 		};
+		C93D8D051D2CA079001305B9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C93D8D061D2CA087001305B9 /* Controller */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C93D8D061D2CA087001305B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C93D8D071D2CA0AC001305B9 /* XYSettingsViewController.h */,
+				C93D8D081D2CA0AC001305B9 /* XYSettingsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C995B8DC1D2B9F4100AF39CA /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +362,7 @@
 		C9C636E21D2B667400BCAC7A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C93D8D051D2CA079001305B9 /* Settings */,
 				C995B8E51D2BA70800AF39CA /* AddressBook */,
 				C995B8DC1D2B9F4100AF39CA /* Conversation */,
 				C9C636E91D2B7A8400BCAC7A /* Login */,
@@ -555,6 +576,7 @@
 				C92BB4041D2BF092008200E7 /* XYAddressBookViewController.m in Sources */,
 				C9C636311D2A8C4A00BCAC7A /* main.m in Sources */,
 				C9C636ED1D2B7AB200BCAC7A /* XYLoginViewController.m in Sources */,
+				C93D8D091D2CA0AC001305B9 /* XYSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

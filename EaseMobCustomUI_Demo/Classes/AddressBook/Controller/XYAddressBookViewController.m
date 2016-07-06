@@ -21,19 +21,32 @@
     
     [[EMClient sharedClient].contactManager addDelegate:self delegateQueue:nil];
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"addressCell"];
+    
     self.buddylist = [[EMClient sharedClient].contactManager getContactsFromDB];
     NSLog(@"self.buddylist == %@",self.buddylist);
- 
+    
     if (self.buddylist.count == 0) {
         /** 数据库没有好友记录 从服务器获取 */
         EMError *error = nil;
         self.buddylist = [[EMClient sharedClient].contactManager getContactsFromServerWithError:&error];
         NSLog(@"数据库没有好友记录 从服务器获取 --- %@",self.buddylist);
     }
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"addressCell"];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    /** 获取对应好友 */
+    NSString *buddyName = self.buddylist[indexPath.row];
+    /** 删除好友 */
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        EMError *error = [[EMClient sharedClient].contactManager deleteContact:buddyName];
+        if (!error) {
+            NSLog(@"删除成功");
+            [self getContactsFromServerAndReload];
+        }
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -114,10 +127,26 @@
         if (!error) {
             NSLog(@"发送同意成功");
             /** 从服务器获取新的好友列表 */
-            self.buddylist = [[EMClient sharedClient].contactManager getContactsFromServerWithError:nil];
-            [self.tableView reloadData];
+            [self getContactsFromServerAndReload];
         }
     }
+}
+
+/**
+ *  用户B删除与用户A的好友关系后，用户A会收到这个回调
+ *
+ *  @param aUsername 用户B
+ */
+- (void)didReceiveDeletedFromUsername:(NSString *)aUsername {
+    
+    [self getContactsFromServerAndReload];
+}
+
+/** 从服务器重新获取好友列表 并刷新表格 */
+- (void)getContactsFromServerAndReload {
+    
+    self.buddylist = [[EMClient sharedClient].contactManager getContactsFromServerWithError:nil];
+    [self.tableView reloadData];
 }
 
 - (void)dealloc {

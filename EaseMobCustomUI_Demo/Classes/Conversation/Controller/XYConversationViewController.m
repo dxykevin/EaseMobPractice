@@ -69,6 +69,14 @@
  */
 - (void)didReceiveDeletedFromUsername:(NSString *)aUsername {
     
+    NSString *message = [NSString stringWithFormat:@"您已被%@用户删除",aUsername];
+    NSLog(@"您已被%@用户删除",aUsername);
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:(UIAlertControllerStyleAlert)];
+    [self presentViewController:alertC animated:YES completion:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alertC dismissViewControllerAnimated:YES completion:nil];
+        });
+    }];
 }
 
 /**
