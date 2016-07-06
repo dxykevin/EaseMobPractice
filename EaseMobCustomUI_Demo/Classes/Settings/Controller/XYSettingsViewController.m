@@ -62,12 +62,19 @@
     
     [[EMClient sharedClient] asyncLogout:YES success:^{
         NSLog(@"退出成功");
-        self.view.window.rootViewController = [UIStoryboard storyboardWithName:@"Login" bundle:nil].instantiateInitialViewController;
+        NSLog(@"%@",[NSThread currentThread]);
+        /** 回到主线程跳转 不然会异常 */
+        [self performSelectorOnMainThread:@selector(backLogin) withObject:nil waitUntilDone:YES];
     } failure:^(EMError *aError) {
         NSLog(@"退出失败---%@",aError);
     }];
 }
 
+- (void)backLogin {
+    
+    NSLog(@"%@",[NSThread currentThread]);
+    self.view.window.rootViewController = [UIStoryboard storyboardWithName:@"Login" bundle:nil].instantiateInitialViewController;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

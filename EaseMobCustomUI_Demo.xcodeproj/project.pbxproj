@@ -23,6 +23,12 @@
 		C92BB47B1D2C0C1F008200E7 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C92BB4771D2C0C1F008200E7 /* libssl.a */; };
 		C92BB47C1D2C0C1F008200E7 /* libHyphenateFullSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C92BB4781D2C0C1F008200E7 /* libHyphenateFullSDK.a */; };
 		C93D8D091D2CA0AC001305B9 /* XYSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D081D2CA0AC001305B9 /* XYSettingsViewController.m */; };
+		C93D8D121D2CB0CF001305B9 /* XYChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D101D2CB0CF001305B9 /* XYChatViewController.m */; };
+		C93D8D131D2CB0CF001305B9 /* XYChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93D8D111D2CB0CF001305B9 /* XYChatViewController.xib */; };
+		C93D8D681D2CD21B001305B9 /* XYChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D661D2CD21B001305B9 /* XYChatViewCell.m */; };
+		C93D8D691D2CD21B001305B9 /* XYChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93D8D671D2CD21B001305B9 /* XYChatViewCell.xib */; };
+		C93D8D6D1D2CE2FC001305B9 /* XYSendChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D6B1D2CE2FC001305B9 /* XYSendChatViewCell.m */; };
+		C93D8D6E1D2CE2FC001305B9 /* XYSendChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93D8D6C1D2CE2FC001305B9 /* XYSendChatViewCell.xib */; };
 		C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */; };
 		C995B8ED1D2BB47C00AF39CA /* XYConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8EC1D2BB47C00AF39CA /* XYConversationViewController.m */; };
 		C9C636311D2A8C4A00BCAC7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C636301D2A8C4A00BCAC7A /* main.m */; };
@@ -105,6 +111,15 @@
 		C92BB4781D2C0C1F008200E7 /* libHyphenateFullSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libHyphenateFullSDK.a; sourceTree = "<group>"; };
 		C93D8D071D2CA0AC001305B9 /* XYSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingsViewController.h; sourceTree = "<group>"; };
 		C93D8D081D2CA0AC001305B9 /* XYSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingsViewController.m; sourceTree = "<group>"; };
+		C93D8D0F1D2CB0CF001305B9 /* XYChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYChatViewController.h; path = ../../AddressBook/Controller/XYChatViewController.h; sourceTree = "<group>"; };
+		C93D8D101D2CB0CF001305B9 /* XYChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYChatViewController.m; path = ../../AddressBook/Controller/XYChatViewController.m; sourceTree = "<group>"; };
+		C93D8D111D2CB0CF001305B9 /* XYChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = XYChatViewController.xib; path = ../../AddressBook/Controller/XYChatViewController.xib; sourceTree = "<group>"; };
+		C93D8D651D2CD21B001305B9 /* XYChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYChatViewCell.h; sourceTree = "<group>"; };
+		C93D8D661D2CD21B001305B9 /* XYChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYChatViewCell.m; sourceTree = "<group>"; };
+		C93D8D671D2CD21B001305B9 /* XYChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYChatViewCell.xib; sourceTree = "<group>"; };
+		C93D8D6A1D2CE2FC001305B9 /* XYSendChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSendChatViewCell.h; sourceTree = "<group>"; };
+		C93D8D6B1D2CE2FC001305B9 /* XYSendChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSendChatViewCell.m; sourceTree = "<group>"; };
+		C93D8D6C1D2CE2FC001305B9 /* XYSendChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYSendChatViewCell.xib; sourceTree = "<group>"; };
 		C995B8E71D2BA72000AF39CA /* XYAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddFriendViewController.h; sourceTree = "<group>"; };
 		C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddFriendViewController.m; sourceTree = "<group>"; };
 		C995B8EB1D2BB47C00AF39CA /* XYConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYConversationViewController.h; sourceTree = "<group>"; };
@@ -265,6 +280,38 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C93D8D621D2CCB4D001305B9 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				C93D8D641D2CD1F5001305B9 /* View */,
+				C93D8D631D2CCB5A001305B9 /* Controller */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		C93D8D631D2CCB5A001305B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C93D8D0F1D2CB0CF001305B9 /* XYChatViewController.h */,
+				C93D8D101D2CB0CF001305B9 /* XYChatViewController.m */,
+				C93D8D111D2CB0CF001305B9 /* XYChatViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C93D8D641D2CD1F5001305B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C93D8D651D2CD21B001305B9 /* XYChatViewCell.h */,
+				C93D8D661D2CD21B001305B9 /* XYChatViewCell.m */,
+				C93D8D671D2CD21B001305B9 /* XYChatViewCell.xib */,
+				C93D8D6A1D2CE2FC001305B9 /* XYSendChatViewCell.h */,
+				C93D8D6B1D2CE2FC001305B9 /* XYSendChatViewCell.m */,
+				C93D8D6C1D2CE2FC001305B9 /* XYSendChatViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C995B8DC1D2B9F4100AF39CA /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +409,7 @@
 		C9C636E21D2B667400BCAC7A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C93D8D621D2CCB4D001305B9 /* Chat */,
 				C93D8D051D2CA079001305B9 /* Settings */,
 				C995B8E51D2BA70800AF39CA /* AddressBook */,
 				C995B8DC1D2B9F4100AF39CA /* Conversation */,
@@ -543,6 +591,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C6363F1D2A8C4A00BCAC7A /* LaunchScreen.storyboard in Resources */,
+				C93D8D6E1D2CE2FC001305B9 /* XYSendChatViewCell.xib in Resources */,
+				C93D8D691D2CD21B001305B9 /* XYChatViewCell.xib in Resources */,
+				C93D8D131D2CB0CF001305B9 /* XYChatViewController.xib in Resources */,
 				C9C6363C1D2A8C4A00BCAC7A /* Assets.xcassets in Resources */,
 				C9C636E81D2B78AE00BCAC7A /* Login.storyboard in Resources */,
 				C9C6363A1D2A8C4A00BCAC7A /* Main.storyboard in Resources */,
@@ -570,7 +621,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93D8D681D2CD21B001305B9 /* XYChatViewCell.m in Sources */,
 				C995B8ED1D2BB47C00AF39CA /* XYConversationViewController.m in Sources */,
+				C93D8D121D2CB0CF001305B9 /* XYChatViewController.m in Sources */,
+				C93D8D6D1D2CE2FC001305B9 /* XYSendChatViewCell.m in Sources */,
 				C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */,
 				C9C636341D2A8C4A00BCAC7A /* AppDelegate.m in Sources */,
 				C92BB4041D2BF092008200E7 /* XYAddressBookViewController.m in Sources */,

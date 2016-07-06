@@ -7,6 +7,7 @@
 //
 
 #import "XYAddressBookViewController.h"
+#import "XYChatViewController.h"
 #import "EMSDK.h"
 @interface XYAddressBookViewController () <EMContactManagerDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong) NSArray *buddylist;
@@ -73,6 +74,14 @@
     cell.textLabel.text = self.buddylist[indexPath.row];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    XYChatViewController *chatVC = [[XYChatViewController alloc] init];
+    /** push进去后隐藏tabBar */
+    chatVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
