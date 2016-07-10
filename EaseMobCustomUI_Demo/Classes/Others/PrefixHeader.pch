@@ -1,0 +1,29 @@
+//
+//  PrefixHeader.pch
+//  EaseMobCustomUI_Demo
+//
+//  Created by dxykevin on 16/7/10.
+//  Copyright © 2016年 HoldCourt. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+/** 如果是调试阶段 DXYLog == NSLog */
+#ifdef DEBUG
+#define DXYLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+
+/** 如果是发布程序 DXYLog替换为空 */
+#else
+#define DXYLog(...)
+#endif
+
+#define MAS_SHORTHAND
+#define MAS_SHORTHAND_GLOBALS
+#import "Masonry.h"
+#import "EMSDK.h"
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#endif /* PrefixHeader_pch */

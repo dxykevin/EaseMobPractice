@@ -12,6 +12,23 @@
 		312A39A51D2FF65800103391 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 312A39A11D2FF65800103391 /* libcurl.a */; };
 		312A39A61D2FF65800103391 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 312A39A21D2FF65800103391 /* libssl.a */; };
 		312A39A71D2FF65800103391 /* libHyphenateFullSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 312A39A31D2FF65800103391 /* libHyphenateFullSDK.a */; };
+		317379331D323D0800A458C0 /* XYToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 317379321D323D0800A458C0 /* XYToolView.m */; };
+		317379371D323D9500A458C0 /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 317379361D323D9500A458C0 /* XYButton.m */; };
+		317379531D323EFA00A458C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 317379391D323EF900A458C0 /* Info.plist */; };
+		317379541D323EFA00A458C0 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3173793B1D323EF900A458C0 /* MASCompositeConstraint.m */; };
+		317379551D323EFA00A458C0 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3173793E1D323EFA00A458C0 /* MASConstraint.m */; };
+		317379561D323EFA00A458C0 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 317379401D323EFA00A458C0 /* MASConstraintMaker.m */; };
+		317379571D323EFA00A458C0 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 317379421D323EFA00A458C0 /* MASLayoutConstraint.m */; };
+		317379581D323EFA00A458C0 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 317379461D323EFA00A458C0 /* MASViewAttribute.m */; };
+		317379591D323EFA00A458C0 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 317379481D323EFA00A458C0 /* MASViewConstraint.m */; };
+		3173795A1D323EFA00A458C0 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3173794A1D323EFA00A458C0 /* NSArray+MASAdditions.m */; };
+		3173795B1D323EFA00A458C0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3173794D1D323EFA00A458C0 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		3173795C1D323EFA00A458C0 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3173794F1D323EFA00A458C0 /* View+MASAdditions.m */; };
+		3173795D1D323EFA00A458C0 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 317379521D323EFA00A458C0 /* ViewController+MASAdditions.m */; };
+		31A84AC01D32474C00183B3D /* XYRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A84ABF1D32474C00183B3D /* XYRootViewController.m */; };
+		31A84AC31D3247C100183B3D /* XYContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A84AC21D3247C100183B3D /* XYContentView.m */; };
+		31A84AC61D32490D00183B3D /* XYChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A84AC51D32490D00183B3D /* XYChatViewController.m */; };
+		31A84AC91D324A5800183B3D /* XYChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A84AC81D324A5800183B3D /* XYChatViewCell.m */; };
 		C92BB4041D2BF092008200E7 /* XYAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BB4031D2BF092008200E7 /* XYAddressBookViewController.m */; };
 		C92BB4411D2C0B46008200E7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92BB4371D2C0A4D008200E7 /* CoreMedia.framework */; };
 		C92BB4421D2C0B52008200E7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92BB4391D2C0A6C008200E7 /* AudioToolbox.framework */; };
@@ -24,12 +41,6 @@
 		C92BB4491D2C0BA4008200E7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C636D61D2B650100BCAC7A /* libsqlite3.tbd */; };
 		C92BB44A1D2C0BAE008200E7 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C636DC1D2B652600BCAC7A /* libiconv.tbd */; };
 		C93D8D091D2CA0AC001305B9 /* XYSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D081D2CA0AC001305B9 /* XYSettingsViewController.m */; };
-		C93D8D121D2CB0CF001305B9 /* XYChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D101D2CB0CF001305B9 /* XYChatViewController.m */; };
-		C93D8D131D2CB0CF001305B9 /* XYChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93D8D111D2CB0CF001305B9 /* XYChatViewController.xib */; };
-		C93D8D681D2CD21B001305B9 /* XYChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D661D2CD21B001305B9 /* XYChatViewCell.m */; };
-		C93D8D691D2CD21B001305B9 /* XYChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93D8D671D2CD21B001305B9 /* XYChatViewCell.xib */; };
-		C93D8D6D1D2CE2FC001305B9 /* XYSendChatViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D8D6B1D2CE2FC001305B9 /* XYSendChatViewCell.m */; };
-		C93D8D6E1D2CE2FC001305B9 /* XYSendChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93D8D6C1D2CE2FC001305B9 /* XYSendChatViewCell.xib */; };
 		C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */; };
 		C995B8ED1D2BB47C00AF39CA /* XYConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C995B8EC1D2BB47C00AF39CA /* XYConversationViewController.m */; };
 		C9C636311D2A8C4A00BCAC7A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C636301D2A8C4A00BCAC7A /* main.m */; };
@@ -104,6 +115,45 @@
 		312A39A11D2FF65800103391 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
 		312A39A21D2FF65800103391 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		312A39A31D2FF65800103391 /* libHyphenateFullSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libHyphenateFullSDK.a; sourceTree = "<group>"; };
+		317379311D323D0800A458C0 /* XYToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYToolView.h; sourceTree = "<group>"; };
+		317379321D323D0800A458C0 /* XYToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYToolView.m; sourceTree = "<group>"; };
+		317379351D323D9500A458C0 /* XYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYButton.h; sourceTree = "<group>"; };
+		317379361D323D9500A458C0 /* XYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYButton.m; sourceTree = "<group>"; };
+		317379391D323EF900A458C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3173793A1D323EF900A458C0 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		3173793B1D323EF900A458C0 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		3173793C1D323EF900A458C0 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		3173793D1D323EF900A458C0 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		3173793E1D323EFA00A458C0 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		3173793F1D323EFA00A458C0 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		317379401D323EFA00A458C0 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		317379411D323EFA00A458C0 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		317379421D323EFA00A458C0 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		317379431D323EFA00A458C0 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		317379441D323EFA00A458C0 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		317379451D323EFA00A458C0 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		317379461D323EFA00A458C0 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		317379471D323EFA00A458C0 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		317379481D323EFA00A458C0 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		317379491D323EFA00A458C0 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		3173794A1D323EFA00A458C0 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		3173794B1D323EFA00A458C0 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		3173794C1D323EFA00A458C0 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		3173794D1D323EFA00A458C0 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		3173794E1D323EFA00A458C0 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		3173794F1D323EFA00A458C0 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		317379501D323EFA00A458C0 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		317379511D323EFA00A458C0 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		317379521D323EFA00A458C0 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		31A84ABE1D32474C00183B3D /* XYRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRootViewController.h; sourceTree = "<group>"; };
+		31A84ABF1D32474C00183B3D /* XYRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRootViewController.m; sourceTree = "<group>"; };
+		31A84AC11D3247C100183B3D /* XYContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYContentView.h; sourceTree = "<group>"; };
+		31A84AC21D3247C100183B3D /* XYContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYContentView.m; sourceTree = "<group>"; };
+		31A84AC41D32490D00183B3D /* XYChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYChatViewController.h; sourceTree = "<group>"; };
+		31A84AC51D32490D00183B3D /* XYChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYChatViewController.m; sourceTree = "<group>"; };
+		31A84AC71D324A5800183B3D /* XYChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYChatViewCell.h; sourceTree = "<group>"; };
+		31A84AC81D324A5800183B3D /* XYChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYChatViewCell.m; sourceTree = "<group>"; };
+		31A84ACA1D324B1100183B3D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C92BB4021D2BF092008200E7 /* XYAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddressBookViewController.h; sourceTree = "<group>"; };
 		C92BB4031D2BF092008200E7 /* XYAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddressBookViewController.m; sourceTree = "<group>"; };
 		C92BB4371D2C0A4D008200E7 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -113,15 +163,6 @@
 		C92BB43F1D2C0A99008200E7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		C93D8D071D2CA0AC001305B9 /* XYSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingsViewController.h; sourceTree = "<group>"; };
 		C93D8D081D2CA0AC001305B9 /* XYSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingsViewController.m; sourceTree = "<group>"; };
-		C93D8D0F1D2CB0CF001305B9 /* XYChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYChatViewController.h; path = ../../AddressBook/Controller/XYChatViewController.h; sourceTree = "<group>"; };
-		C93D8D101D2CB0CF001305B9 /* XYChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYChatViewController.m; path = ../../AddressBook/Controller/XYChatViewController.m; sourceTree = "<group>"; };
-		C93D8D111D2CB0CF001305B9 /* XYChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = XYChatViewController.xib; path = ../../AddressBook/Controller/XYChatViewController.xib; sourceTree = "<group>"; };
-		C93D8D651D2CD21B001305B9 /* XYChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYChatViewCell.h; sourceTree = "<group>"; };
-		C93D8D661D2CD21B001305B9 /* XYChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYChatViewCell.m; sourceTree = "<group>"; };
-		C93D8D671D2CD21B001305B9 /* XYChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYChatViewCell.xib; sourceTree = "<group>"; };
-		C93D8D6A1D2CE2FC001305B9 /* XYSendChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSendChatViewCell.h; sourceTree = "<group>"; };
-		C93D8D6B1D2CE2FC001305B9 /* XYSendChatViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSendChatViewCell.m; sourceTree = "<group>"; };
-		C93D8D6C1D2CE2FC001305B9 /* XYSendChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYSendChatViewCell.xib; sourceTree = "<group>"; };
 		C995B8E71D2BA72000AF39CA /* XYAddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAddFriendViewController.h; sourceTree = "<group>"; };
 		C995B8E81D2BA72000AF39CA /* XYAddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAddFriendViewController.m; sourceTree = "<group>"; };
 		C995B8EB1D2BB47C00AF39CA /* XYConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYConversationViewController.h; sourceTree = "<group>"; };
@@ -193,8 +234,10 @@
 		312A39721D2FF4BB00103391 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				317379341D323D8700A458C0 /* View */,
 				312A39731D2FF50500103391 /* AppDelegate.h */,
 				312A39741D2FF50500103391 /* AppDelegate.m */,
+				31A84ACA1D324B1100183B3D /* PrefixHeader.pch */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -272,6 +315,61 @@
 			path = 3rdparty;
 			sourceTree = "<group>";
 		};
+		317379341D323D8700A458C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				317379351D323D9500A458C0 /* XYButton.h */,
+				317379361D323D9500A458C0 /* XYButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		317379381D323EF900A458C0 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				317379391D323EF900A458C0 /* Info.plist */,
+				3173793A1D323EF900A458C0 /* MASCompositeConstraint.h */,
+				3173793B1D323EF900A458C0 /* MASCompositeConstraint.m */,
+				3173793C1D323EF900A458C0 /* MASConstraint+Private.h */,
+				3173793D1D323EF900A458C0 /* MASConstraint.h */,
+				3173793E1D323EFA00A458C0 /* MASConstraint.m */,
+				3173793F1D323EFA00A458C0 /* MASConstraintMaker.h */,
+				317379401D323EFA00A458C0 /* MASConstraintMaker.m */,
+				317379411D323EFA00A458C0 /* MASLayoutConstraint.h */,
+				317379421D323EFA00A458C0 /* MASLayoutConstraint.m */,
+				317379431D323EFA00A458C0 /* Masonry.h */,
+				317379441D323EFA00A458C0 /* MASUtilities.h */,
+				317379451D323EFA00A458C0 /* MASViewAttribute.h */,
+				317379461D323EFA00A458C0 /* MASViewAttribute.m */,
+				317379471D323EFA00A458C0 /* MASViewConstraint.h */,
+				317379481D323EFA00A458C0 /* MASViewConstraint.m */,
+				317379491D323EFA00A458C0 /* NSArray+MASAdditions.h */,
+				3173794A1D323EFA00A458C0 /* NSArray+MASAdditions.m */,
+				3173794B1D323EFA00A458C0 /* NSArray+MASShorthandAdditions.h */,
+				3173794C1D323EFA00A458C0 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				3173794D1D323EFA00A458C0 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				3173794E1D323EFA00A458C0 /* View+MASAdditions.h */,
+				3173794F1D323EFA00A458C0 /* View+MASAdditions.m */,
+				317379501D323EFA00A458C0 /* View+MASShorthandAdditions.h */,
+				317379511D323EFA00A458C0 /* ViewController+MASAdditions.h */,
+				317379521D323EFA00A458C0 /* ViewController+MASAdditions.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		3173795E1D32421000A458C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31A84ABE1D32474C00183B3D /* XYRootViewController.h */,
+				31A84ABF1D32474C00183B3D /* XYRootViewController.m */,
+				31A84AC11D3247C100183B3D /* XYContentView.h */,
+				31A84AC21D3247C100183B3D /* XYContentView.m */,
+				31A84AC41D32490D00183B3D /* XYChatViewController.h */,
+				31A84AC51D32490D00183B3D /* XYChatViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C93D8D051D2CA079001305B9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,31 +390,19 @@
 		C93D8D621D2CCB4D001305B9 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				3173795E1D32421000A458C0 /* Controller */,
 				C93D8D641D2CD1F5001305B9 /* View */,
-				C93D8D631D2CCB5A001305B9 /* Controller */,
 			);
 			path = Chat;
-			sourceTree = "<group>";
-		};
-		C93D8D631D2CCB5A001305B9 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				C93D8D0F1D2CB0CF001305B9 /* XYChatViewController.h */,
-				C93D8D101D2CB0CF001305B9 /* XYChatViewController.m */,
-				C93D8D111D2CB0CF001305B9 /* XYChatViewController.xib */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		C93D8D641D2CD1F5001305B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C93D8D651D2CD21B001305B9 /* XYChatViewCell.h */,
-				C93D8D661D2CD21B001305B9 /* XYChatViewCell.m */,
-				C93D8D671D2CD21B001305B9 /* XYChatViewCell.xib */,
-				C93D8D6A1D2CE2FC001305B9 /* XYSendChatViewCell.h */,
-				C93D8D6B1D2CE2FC001305B9 /* XYSendChatViewCell.m */,
-				C93D8D6C1D2CE2FC001305B9 /* XYSendChatViewCell.xib */,
+				317379311D323D0800A458C0 /* XYToolView.h */,
+				317379321D323D0800A458C0 /* XYToolView.m */,
+				31A84AC71D324A5800183B3D /* XYChatViewCell.h */,
+				31A84AC81D324A5800183B3D /* XYChatViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,6 +529,7 @@
 		C9C636E51D2B66F700BCAC7A /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				317379381D323EF900A458C0 /* Masonry */,
 				312A39761D2FF65800103391 /* HyphenateFullSDK */,
 			);
 			path = Lib;
@@ -591,11 +678,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9C6363F1D2A8C4A00BCAC7A /* LaunchScreen.storyboard in Resources */,
-				C93D8D6E1D2CE2FC001305B9 /* XYSendChatViewCell.xib in Resources */,
-				C93D8D691D2CD21B001305B9 /* XYChatViewCell.xib in Resources */,
-				C93D8D131D2CB0CF001305B9 /* XYChatViewController.xib in Resources */,
 				C9C6363C1D2A8C4A00BCAC7A /* Assets.xcassets in Resources */,
 				C9C636E81D2B78AE00BCAC7A /* Login.storyboard in Resources */,
+				317379531D323EFA00A458C0 /* Info.plist in Resources */,
 				C9C6363A1D2A8C4A00BCAC7A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,13 +706,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C93D8D681D2CD21B001305B9 /* XYChatViewCell.m in Sources */,
+				317379591D323EFA00A458C0 /* MASViewConstraint.m in Sources */,
 				C995B8ED1D2BB47C00AF39CA /* XYConversationViewController.m in Sources */,
-				C93D8D121D2CB0CF001305B9 /* XYChatViewController.m in Sources */,
-				C93D8D6D1D2CE2FC001305B9 /* XYSendChatViewCell.m in Sources */,
+				317379581D323EFA00A458C0 /* MASViewAttribute.m in Sources */,
+				317379371D323D9500A458C0 /* XYButton.m in Sources */,
+				317379331D323D0800A458C0 /* XYToolView.m in Sources */,
+				31A84AC31D3247C100183B3D /* XYContentView.m in Sources */,
+				31A84AC91D324A5800183B3D /* XYChatViewCell.m in Sources */,
 				312A39751D2FF50500103391 /* AppDelegate.m in Sources */,
+				317379541D323EFA00A458C0 /* MASCompositeConstraint.m in Sources */,
+				317379561D323EFA00A458C0 /* MASConstraintMaker.m in Sources */,
+				3173795C1D323EFA00A458C0 /* View+MASAdditions.m in Sources */,
+				317379571D323EFA00A458C0 /* MASLayoutConstraint.m in Sources */,
+				31A84AC01D32474C00183B3D /* XYRootViewController.m in Sources */,
+				3173795D1D323EFA00A458C0 /* ViewController+MASAdditions.m in Sources */,
+				317379551D323EFA00A458C0 /* MASConstraint.m in Sources */,
 				C995B8E91D2BA72000AF39CA /* XYAddFriendViewController.m in Sources */,
 				C92BB4041D2BF092008200E7 /* XYAddressBookViewController.m in Sources */,
+				3173795A1D323EFA00A458C0 /* NSArray+MASAdditions.m in Sources */,
+				31A84AC61D32490D00183B3D /* XYChatViewController.m in Sources */,
+				3173795B1D323EFA00A458C0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C9C636311D2A8C4A00BCAC7A /* main.m in Sources */,
 				C9C636ED1D2B7AB200BCAC7A /* XYLoginViewController.m in Sources */,
 				C93D8D091D2CA0AC001305B9 /* XYSettingsViewController.m in Sources */,
@@ -776,6 +874,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = EaseMobCustomUI_Demo/Classes/Others/PrefixHeader.pch;
 				INFOPLIST_FILE = EaseMobCustomUI_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -799,6 +898,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = EaseMobCustomUI_Demo/Classes/Others/PrefixHeader.pch;
 				INFOPLIST_FILE = EaseMobCustomUI_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

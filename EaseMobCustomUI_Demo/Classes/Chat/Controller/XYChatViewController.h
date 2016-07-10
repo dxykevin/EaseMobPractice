@@ -2,12 +2,12 @@
 //  XYChatViewController.h
 //  EaseMobCustomUI_Demo
 //
-//  Created by HoldCourt on 16/7/6.
+//  Created by dxykevin on 16/7/10.
 //  Copyright © 2016年 HoldCourt. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "XYRootViewController.h"
 
-@interface XYChatViewController : UIViewController
+@interface XYChatViewController : XYRootViewController
 
 @end

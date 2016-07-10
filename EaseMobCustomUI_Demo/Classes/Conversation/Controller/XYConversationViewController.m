@@ -8,6 +8,7 @@
 
 #import "XYConversationViewController.h"
 #import "EMSDK.h"
+
 @interface XYConversationViewController () <EMClientDelegate,EMContactManagerDelegate,UIAlertViewDelegate>
 /** 好友名字 */
 @property (nonatomic,copy) NSString *buddyName;
